@@ -11,7 +11,7 @@ for Chart Values see [here](charts/capv/README.md)
 
 Note that Chart releases correlate image versions with CRDs and as such may need to upgrade/replace CRD versions over time.
 the cluster-api-provider-vsphere project requires a bootstrap secret/credential which is hardcoded to:
-
+```
 apiVersion: v1
 kind: Secret
 metadata:
@@ -25,5 +25,5 @@ stringData:
     username: '${VSPHERE_USERNAME}'
     password: '${VSPHERE_PASSWORD}'
 type: Opaque
-
+```
 The credentials will need to be generated separately and managed outside of the chart.
