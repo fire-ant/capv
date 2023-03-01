@@ -1,0 +1,18 @@
+controllerManager:
+  manager:
+    env:
+      serviceAccountsCmName: ${SERVICE_ACCOUNTS_CM_NAME}
+      serviceAccountsCmNamespace: ${SERVICE_ACCOUNTS_CM_NAMESPACE}
+    image:
+      repository: gcr.io/cluster-api-provider-vsphere/release/manager
+      tag: v1.5.3
+  replicas: 1
+kubernetesClusterDomain: cluster.local
+webhookService:
+  ports:
+  - port: 443
+    targetPort: webhook-server
+  type: ClusterIP
+providerArgs:
+  nodeAntiAffinity: false
+  nodeLabeling: false
